@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>Movie Rating Predictor</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/portfolio.css') }}">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700,900|Ubuntu:400,500,700" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/js/bootstrap-datepicker.min.js"></script>
+</head>
+
+<body class="contact-page">
+  <header>
+    <nav>
+      <ul class="header-left">
+        <li class="header-logo"><a href="http://deeppatel.uta.cloud/">Deep Patel</a></li>
+      </ul>
+      <input type="checkbox" id="chk">
+      <label for="chk" class="show-menu">
+        <i class="fa fa-bars"></i>
+      </label>
+      <ul class="header-right responsive-menu">
+        <label for="chk" class="hide-menu">
+          <i class="fa fa-remove"></i>
+        </label>
+        <li class="header-nav"><a href="contact.php">Blog Page</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main class="contact-main">
+    <section class="contact-section">
+      <form class="form-group form-validate" id="form_contact" action="{{ url_for('predict')}}" method="post" style="width:100%;">
+        <div class="popup-header">
+          <h1>Predict the movie rating based on your comment</h1>
+        </div>
+        <div class="contact-container">
+          <div class="contact-content">
+            <div class="contact-content-part1">
+                <label><b>Enter your comment here:</b></label></br></br>
+                <input type="text" placeholder="Comment" class="curve-text-box" required name="comment">
+                <div class="contact-footer">
+                  <button type="submit" id="contact_msg" class="green-button" style="margin-top:15px;">Predict</button>
+                </div>
+            </div>
+            <div class="contact-content-part2" style="margin-top:30px;">
+              <label class="content1"><b>The Predicted Rating is:</b></label>
+              <label class="content2">{{ prediction_text }}
+              </label>
+            </div>
+          </div>
+        </div>
+      </form>
+    </section>
+  </main>
+  <footer>
+    <section class="footer-section-1">
+      <a class="social-icon" target="_blank" href="https://www.facebook.com/profile.php?id=100003687309056">
+        <i class="fa fa-facebook"></i>
+      </a>
+      <a class="social-icon" target="_blank "href="https://www.linkedin.com/in/deep-patel-7b151b165/">
+        <i class="fa fa-linkedin"></i>
+      </a>
+      <a class="social-icon" target="_blank "href="https://in.pinterest.com/bluestormcraft6/">
+        <i class="fa fa-pinterest"></i>
+      </a>
+      <a class="social-icon" target="_blank "href="https://www.youtube.com/channel/UCfKgPxZd6rZOuigJnEjqCrw/featured?view_as=subscriber">
+        <i class="fa fa-youtube-play"></i>
+      </a>
+    </section>
+    <section class="footer-section-2">
+      <h1>Deep Patel</h1>
+      <p>&copy;Deep Patel CV.All rights reserved.</p>
+    </section>
+  </footer>
+
+
+
+
+</body>
+
+</html>

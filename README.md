@@ -131,6 +131,7 @@ need to do anything to create model.pkl externally. We just need to run the belo
 pickle.dump(m1, open('model.pkl','wb'))
 ```
 
-Now our Model is generated. Let us move to front page it is available in templates/index.html. We don't need to do much in it.
-Just a form with text box and submit button on which if clicked it will return the rating based on the text written in the text box.
+Now our Model is generated. Let us move to front page, it is available in templates/index.html. We don't need to do much in it. Just a form with text box and submit button on which if clicked it will return the rating based on the text written in the text box.
+
+
 

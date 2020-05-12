@@ -133,5 +133,44 @@ pickle.dump(m1, open('model.pkl','wb'))
 
 Now our Model is generated. Let us move to front page, it is available in templates/index.html. We don't need to do much in it. Just a form with text box and submit button on which if clicked it will return the rating based on the text written in the text box.
 
+![](app_pic.png)
+</br>
+
+To run the app go to your terminal and make sure your current directory is your project directory and then type python app.py
+
+It will start your app on http://127.0.0.1:5000/ 
+
+*** Challenge and how to upload on live server.
+
+The challenging part was to not build the app but to upload it on the server. There are many solution availbale online but none of them have model which which above 100mb. One of the solution to go live with your your flask project is through heroku and I used the same but it uses GitHub to upload your project. And our model.pkl is about 120 MB and Git don't allow us to upload file above 25 MB. 
+
+So the solution to upload file on GitHub which is above 25 MB is using Git LFS
+<!-- Links -->
+https://git-lfs.github.com/
+
+Download it on your PC and once you are done move to next step. Luckily I found a life saving video is short time though it was in Thai but I just followed the instruction displayed on screen. Here is the link : <!-- Links -->https://www.youtube.com/watch?v=84nRMsH2L7o&list=LLwUe5wS-oG6otJTEDk2OU0g&index=2&t=307s
+
+I had little issue in this as well while pushing the pkl file but I tried to push it forcefully with code "git push origin master --force" the only to note here it is a bad habit to do so it will remove all your existing file.
+
+```
+(base) Deeps-MacBook-Air2:DMProject deeppatel$ git init
+(base) Deeps-MacBook-Air2:DMProject deeppatel$ git remote add origin <your git repository link>
+(base) Deeps-MacBook-Air2:DMProject deeppatel$ git lfs track "*.pkl"
+Tracking "*.pkl"
+(base) Deeps-MacBook-Air2:DMProject deeppatel$ git add model.pkl
+(base) Deeps-MacBook-Air2:gitfolder deeppatel$ git commit -m "commit one"
+[master (root-commit) 2dc7a2d] commit one
+ 1 file changed, 3 insertions(+)
+ create mode 100644 model.pkl
+(base) Deeps-MacBook-Air2:gitfolder deeppatel$ git push origin master --force
+Uploading LFS objects: 100% (1/1), 125 MB | 0 B/s, done.   
+```
+### Upload on Heroku
+
+Here is the link I followed while uploading: 
+Link 1: <!-- Link -->https://www.youtube.com/watch?v=bjsJOl8gz5k&list=PLZoTAELRMXVOAvUbePX1lTdxQR8EY35Z1
+And as we used lfs we need to add build pack to our heroku app and generate token
+Link 2: <!-- Link -->https://elements.heroku.com/buildpacks/raxod502/heroku-buildpack-git-lfs
+Link 3: <!-- Link -->https://towardsdatascience.com/everything-from-your-deep-learning-model-to-a-web-app-279cd733f3d4
 
 
